@@ -6,14 +6,27 @@
     "start": "next start"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.1",
+    "@heroicons/react": "^2.0.13",
+    "@next/font": "^13.0.6",
+    "@tailwindcss/typography": "^0.5.8",
+    "@vercel/analytics": "^0.1.5",
+    "graphql": "^16.6.0",
+    "html-react-parser": "^3.0.4",
+    "moment": "^2.29.4",
     "next": "latest",
+    "next-themes": "^0.2.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.7.1",
+    "reading-time": "^1.5.0",
+    "rss": "^1.2.2"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
+    "@types/rss": "^0.0.29",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.18",
     "tailwindcss": "^3.2.1",
