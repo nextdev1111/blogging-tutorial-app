@@ -3,7 +3,15 @@ import { type DocumentNode, type TypedDocumentNode, OperationVariables } from '@
 
 export const client = new ApolloClient({
     uri: process.env.GRAHPQL_ENDPOINT,
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
+    defaultOptions: {
+        query:{
+            fetchPolicy: 'no-cache'
+        },
+        watchQuery: {
+            fetchPolicy: 'no-cache'
+        }
+    }
 })
 
 const graphqlFetcher = async(query: DocumentNode | TypedDocumentNode<any, {}>, variables?: OperationVariables) => {
