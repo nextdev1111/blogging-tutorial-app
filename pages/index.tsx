@@ -18,13 +18,13 @@ List
 
 type Props = {
   blogs: Blog[];
+  date: string;
 };
 
-const Home = ({ blogs }: Props) => {
-  console.log(blogs);
-
+const Home = ({ blogs, date }: Props) => {
   return (
     <Container meta={{ title: "Next Dev" }}>
+      <p>{date}</p>
       <div>
         {/* latest blog */}
         <LatestBlog blog={blogs[0]} />
@@ -50,12 +50,13 @@ const Home = ({ blogs }: Props) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const blogs = await services.queryBlogs();
 
   return {
     props: {
       blogs,
+      date: new Date().toString(),
     },
   };
 };

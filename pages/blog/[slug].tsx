@@ -11,9 +11,10 @@ import Sharer from "components/Sharer";
 
 type Props = {
   blog: Blog;
+  date: string;
 };
 
-function Blog({ blog }: Props) {
+function Blog({ blog, date }: Props) {
   const timeToRead = readingTime(blog.content.html);
 
   return (
@@ -25,6 +26,7 @@ function Blog({ blog }: Props) {
         image: blog.thumbnail.url,
       }}
     >
+      {date}
       <div className="space-y-4">
         {/* heading */}
         <h1 className="text-4xl font-bold">{blog.title}</h1>
@@ -102,7 +104,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const slug = context.params?.slug;
 
   if (typeof slug !== "string") {
@@ -116,6 +118,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   return {
-    props: { blog },
+    props: {
+      date: new Date().toString(),
+      blog,
+    },
   };
 };
