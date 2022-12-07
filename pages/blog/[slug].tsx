@@ -11,10 +11,9 @@ import Sharer from "components/Sharer";
 
 type Props = {
   blog: Blog;
-  date: string;
 };
 
-function Blog({ blog, date }: Props) {
+function Blog({ blog }: Props) {
   const timeToRead = readingTime(blog.content.html);
 
   return (
@@ -26,7 +25,6 @@ function Blog({ blog, date }: Props) {
         image: blog.thumbnail.url,
       }}
     >
-      {date}
       <div className="space-y-4">
         {/* heading */}
         <h1 className="text-4xl font-bold">{blog.title}</h1>
@@ -119,7 +117,6 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 
   return {
     props: {
-      date: new Date().toString(),
       blog,
     },
   };

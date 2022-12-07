@@ -18,13 +18,11 @@ List
 
 type Props = {
   blogs: Blog[];
-  date: string;
 };
 
-const Home = ({ blogs, date }: Props) => {
+const Home = ({ blogs }: Props) => {
   return (
     <Container meta={{ title: "Next Dev" }}>
-      <p>{date}</p>
       <div>
         {/* latest blog */}
         <LatestBlog blog={blogs[0]} />
@@ -56,7 +54,6 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   return {
     props: {
       blogs,
-      date: new Date().toString(),
     },
   };
 };
