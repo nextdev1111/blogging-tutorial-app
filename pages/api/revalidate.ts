@@ -19,7 +19,7 @@ export default async function handler(
         await res.revalidate('/blogs')
         await res.revalidate(`/blog/${req.body.data.slug}`)
 
-        return res.json({revalidated: true, changeSlug: req.body.data})
+        return res.json({revalidated: true})
 
     } catch (error) {
         return res.status(500).send({
