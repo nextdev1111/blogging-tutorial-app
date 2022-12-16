@@ -10,4 +10,4 @@
 * Typescript
 
 ## 📺 Youtube video
-Youtube video for this code in Hindi is available at -- (coming soon)
+Youtube video for this code in Hindi is available at -- https://youtu.be/1BKitnWp2Sc
